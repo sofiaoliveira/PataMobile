@@ -4,5 +4,13 @@
     <string name="app_name">PataMobile</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_activity_diagnosticos">activity_diagnosticos</string>
+    <string name="title_activity_diagnosticos">diagnosticos</string>
+    <string name="title_activity_criar_paciente">Criar Paciente</string>
+    <string name="title_activity_sintomas">SintomasActivity</string>
+    <string name="title_activity_dados_utente">DadosUtenteActivity</string>
+    <string name="title_activity_gestao_paciente">GestaoPacienteActivity</string>
+    <string name="title_activity_historico_consultas">HistoricoConsultasActivity</string>
+    <string name="title_activity_lista_pacientes">ListaPacientesActivity</string>
 
 </resources>

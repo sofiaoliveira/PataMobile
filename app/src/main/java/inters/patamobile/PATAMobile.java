@@ -9,8 +9,10 @@ import com.android.volley.toolbox.Volley;
 
 public class PATAMobile extends Application{
 
-    public static String ENDPOINT = "http://localhost:41250/Pata.svc";
+    public static String ENDPOINT = "http://patawebservice.apphb.com/Pata.svc/rest";
     private static RequestQueue requestQueue;
+    public static String token;
+
 
 
     @Override
@@ -24,4 +26,6 @@ public class PATAMobile extends Application{
         }
         return requestQueue;
     }
+
+
 }

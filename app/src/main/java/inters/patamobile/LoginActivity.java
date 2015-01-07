@@ -6,6 +6,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -30,6 +31,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -248,17 +250,20 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     private void fazerLogin(String username, String password) {
         PATAMobile.getRequestQueue(this);
-        String url = PATAMobile.ENDPOINT + "/login";
-        final Map<String, String> postValores = new HashMap<String, String>();
-        postValores.put("username", username);
-        postValores.put("password", password);
+        String url = PATAMobile.ENDPOINT + "/login?username="+username+"&password="+password;
 
-        loginRequest = new StringRequest(Request.Method.POST, url,
+
+        loginRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if(response != ""){
-                    mEmailView.setError("Login Sucesso");
+                    Gson gson = new Gson();
+                    PATAMobile.token = gson.fromJson(response, String.class);
+
+                    Intent intent = new Intent(LoginActivity.this, ListaPacientesActivity.class);
+                    startActivity(intent);
+                    finish();
                 }else{
                     mEmailView.setError("Login inválido");
                 }
@@ -270,12 +275,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 mEmailView.setError("Erro Login: pedido ao servidor");
                 showProgress(false);
             }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                return postValores;
-            }
-        };
+        })
+         ;
 
         RequestQueue requestQueue = PATAMobile.getRequestQueue(this);
         requestQueue.add(loginRequest);

@@ -16,7 +16,6 @@
         <activity
             android:name="inters.patamobile.MainActivity"
             android:label="@string/app_name" >
-
         </activity>
         <activity
             android:name="inters.patamobile.LoginActivity"
@@ -27,6 +26,32 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name="inters.patamobile.DiagnosticosActivity"
+            android:label="@string/title_activity_diagnosticos" >
+        </activity>
+        <activity
+            android:name="inters.patamobile.CriarPacienteActivity"
+            android:label="@string/title_activity_criar_paciente" >
+        </activity>
+        <activity
+            android:name="inters.patamobile.SintomasActivity"
+            android:label="@string/title_activity_sintomas" >
+        </activity>
+
+        <activity
+            android:name="inters.patamobile.GestaoPacienteActivity"
+            android:label="@string/title_activity_gestao_paciente" >
+        </activity>
+        <activity
+            android:name="inters.patamobile.HistoricoConsultasActivity"
+            android:label="@string/title_activity_historico_consultas" >
+        </activity>
+        <activity
+            android:name="inters.patamobile.ListaPacientesActivity"
+            android:label="@string/title_activity_lista_pacientes" >
         </activity>
     </application>
 
